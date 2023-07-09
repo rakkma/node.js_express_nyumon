@@ -1,0 +1,18 @@
+{{!-- フォームを作成 --}}
+<form action="/" method="POST" enctype="multipart/form-data"><form action="/" method="POST" enctype="multipart/form-data">
+    {{!action属性はフォームデータが送信されるURLを指定。この例ではルートURL (/) にデータが送信}}
+    {{!method属性はフォームデータの送信方法を指定。この例ではPOSTメソッドを使用}}
+    {{!enctype属性はフォームデータのエンコーディング方式を指定。multipart/form-dataはファイルアップロード時に使用されるエンコーディング方式}}
+  <h3>画像をアップロードする</h3>
+  <input type="file" name="sampleFile" accept="image/*" />
+      {{!-- accept属性は許可するファイルタイプを指定。image/*とすることで、画像ファイルのみを選択できる *はjpgでもpngでもいいようにするやつ--}}
+  <input type="submit" class="btn btn-primary" />
+</form>
+
+<div>
+    {{#each rows}} {{!-- Handlebarsテンプレートエンジンの制御フローを表すタグ --}}
+     <p>↓に保存された画像が出力されます</p>
+     <img src={{this.imageName}} alt="">
+  <p>{{this.imageName}}</p>
+    {{/each}}
+</div>
